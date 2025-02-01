@@ -1,26 +1,24 @@
 <?php
-namespace App\Filament\Resources\BreweryResource\Api\Handlers;
+namespace App\Filament\Resources\UserResource\Api\Handlers;
 
 use Illuminate\Http\Request;
-use Spatie\QueryBuilder\QueryBuilder;
 use Rupadana\ApiService\Http\Handlers;
-use App\Filament\Resources\BreweryResource;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use App\Filament\Resources\BreweryResource\Api\Transformers\BreweryTransformer;
+use Spatie\QueryBuilder\QueryBuilder;
+use App\Filament\Resources\UserResource;
+use App\Filament\Resources\UserResource\Api\Transformers\UserTransformer;
 
 class PaginationHandler extends Handlers {
     public static string | null $uri = '/';
-    public static string | null $resource = BreweryResource::class;
+    public static string | null $resource = UserResource::class;
 
-    public static bool $public = false;
 
     /**
-     * List of Brewery
+     * List of User
      *
      * @param Request $request
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function handler(): AnonymousResourceCollection
+    public function handler()
     {
         $query = static::getEloquentQuery();
 
@@ -32,6 +30,6 @@ class PaginationHandler extends Handlers {
         ->paginate(request()->query('per_page'))
         ->appends(request()->query());
 
-        return BreweryTransformer::collection($query);
+        return UserTransformer::collection($query);
     }
 }

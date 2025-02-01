@@ -22,6 +22,7 @@ class BreweryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->wrap()
                     ->searchable()
                     ->sortable()
                     ->alignLeft(),
