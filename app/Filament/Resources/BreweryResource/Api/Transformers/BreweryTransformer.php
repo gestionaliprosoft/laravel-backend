@@ -1,15 +1,15 @@
 <?php
+
 namespace App\Filament\Resources\BreweryResource\Api\Transformers;
 
-use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Brewery;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * @property Brewery $resource
  */
 class BreweryTransformer extends JsonResource
 {
-
     /**
      * Transform the resource into an array.
      *

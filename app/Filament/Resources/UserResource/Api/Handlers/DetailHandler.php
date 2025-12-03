@@ -2,23 +2,22 @@
 
 namespace App\Filament\Resources\UserResource\Api\Handlers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
-use Spatie\QueryBuilder\QueryBuilder;
-use Rupadana\ApiService\Http\Handlers;
 use App\Filament\Resources\UserResource;
 use App\Filament\Resources\UserResource\Api\Transformers\UserTransformer;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Rupadana\ApiService\Http\Handlers;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class DetailHandler extends Handlers
 {
-    public static string | null $uri = '/{id}';
-    public static string | null $resource = UserResource::class;
+    public static ?string $uri = '/{id}';
 
+    public static ?string $resource = UserResource::class;
 
     /**
      * Show User
      *
-     * @param Request $request
      * @return UserTransformer
      */
     public function handler(Request $request): JsonResponse|UserTransformer
@@ -32,7 +31,9 @@ class DetailHandler extends Handlers
         )
             ->first();
 
-        if (!$query) return static::sendNotFoundResponse();
+        if (! $query) {
+            return static::sendNotFoundResponse();
+        }
 
         return new UserTransformer($query);
     }

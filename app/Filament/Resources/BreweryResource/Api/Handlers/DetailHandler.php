@@ -2,23 +2,22 @@
 
 namespace App\Filament\Resources\BreweryResource\Api\Handlers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
-use Spatie\QueryBuilder\QueryBuilder;
-use Rupadana\ApiService\Http\Handlers;
 use App\Filament\Resources\BreweryResource;
 use App\Filament\Resources\BreweryResource\Api\Transformers\BreweryTransformer;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Rupadana\ApiService\Http\Handlers;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class DetailHandler extends Handlers
 {
-    public static string | null $uri = '/{id}';
-    public static string | null $resource = BreweryResource::class;
+    public static ?string $uri = '/{id}';
 
+    public static ?string $resource = BreweryResource::class;
 
     /**
      * Show Brewery
      *
-     * @param Request $request
      * @return BreweryTransformer
      */
     public function handler(Request $request): BreweryTransformer|JsonResponse
@@ -32,7 +31,9 @@ class DetailHandler extends Handlers
         )
             ->first();
 
-        if (!$query) return static::sendNotFoundResponse();
+        if (! $query) {
+            return static::sendNotFoundResponse();
+        }
 
         return new BreweryTransformer($query);
     }

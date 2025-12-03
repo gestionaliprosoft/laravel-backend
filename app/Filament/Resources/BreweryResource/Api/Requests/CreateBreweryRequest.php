@@ -22,21 +22,21 @@ class CreateBreweryRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'name' => 'required|string',
-			'brewery_type' => 'required|string',
-			'address_1' => 'required|string',
-			'address_2' => 'required|string',
-			'address_3' => 'required|string',
-			'city' => 'required|string',
-			'state_province' => 'required|string',
-			'postal_code' => 'required|string',
-			'country' => 'required|string',
-			'longitude' => 'required|string',
-			'latitude' => 'required|string',
-			'phone' => 'required|string',
-			'website_url' => 'required|string',
-			'state' => 'required|string',
-			'street' => 'required|string'
-		];
+            'name' => 'required|string',
+            'brewery_type' => 'required|string',
+            'address_1' => 'required|string',
+            'address_2' => 'required|string',
+            'address_3' => 'required|string',
+            'city' => 'required|string',
+            'state_province' => 'required|string',
+            'postal_code' => 'required|string',
+            'country' => 'required|string',
+            'longitude' => 'required|string',
+            'latitude' => 'required|string',
+            'phone' => 'required|string',
+            'website_url' => 'required|string',
+            'state' => 'required|string',
+            'street' => 'required|string',
+        ];
     }
 }

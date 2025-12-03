@@ -86,7 +86,7 @@ class UserResource extends Resource
     }
 
     public static function getApiTransformer(): string
-        {
-            return UserTransformer::class;
-        }
+    {
+        return UserTransformer::class;
+    }
 }

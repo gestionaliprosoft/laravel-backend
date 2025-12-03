@@ -1,21 +1,23 @@
 <?php
+
 namespace App\Filament\Resources\UserResource\Api\Handlers;
 
+use App\Filament\Resources\UserResource;
+use App\Filament\Resources\UserResource\Api\Transformers\UserTransformer;
 use Illuminate\Http\Request;
 use Rupadana\ApiService\Http\Handlers;
 use Spatie\QueryBuilder\QueryBuilder;
-use App\Filament\Resources\UserResource;
-use App\Filament\Resources\UserResource\Api\Transformers\UserTransformer;
 
-class PaginationHandler extends Handlers {
-    public static string | null $uri = '/';
-    public static string | null $resource = UserResource::class;
+class PaginationHandler extends Handlers
+{
+    public static ?string $uri = '/';
 
+    public static ?string $resource = UserResource::class;
 
     /**
      * List of User
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function handler()

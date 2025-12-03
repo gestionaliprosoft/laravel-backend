@@ -1,24 +1,26 @@
 <?php
+
 namespace App\Filament\Resources\BreweryResource\Api\Handlers;
 
-use Illuminate\Http\Request;
-use Spatie\QueryBuilder\QueryBuilder;
-use Rupadana\ApiService\Http\Handlers;
 use App\Filament\Resources\BreweryResource;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use App\Filament\Resources\BreweryResource\Api\Transformers\BreweryTransformer;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Rupadana\ApiService\Http\Handlers;
+use Spatie\QueryBuilder\QueryBuilder;
 
-class PaginationHandler extends Handlers {
-    public static string | null $uri = '/';
-    public static string | null $resource = BreweryResource::class;
+class PaginationHandler extends Handlers
+{
+    public static ?string $uri = '/';
+
+    public static ?string $resource = BreweryResource::class;
 
     public static bool $public = false;
 
     /**
      * List of Brewery
      *
-     * @param Request $request
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @param  Request  $request
      */
     public function handler(): AnonymousResourceCollection
     {

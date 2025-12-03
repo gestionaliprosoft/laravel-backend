@@ -1,27 +1,30 @@
 <?php
+
 namespace App\Filament\Resources\BreweryResource\Api\Handlers;
 
-use Rupadana\ApiService\Http\Handlers;
 use App\Filament\Resources\BreweryResource;
 use App\Filament\Resources\BreweryResource\Api\Requests\CreateBreweryRequest;
+use Rupadana\ApiService\Http\Handlers;
 
-class CreateHandler extends Handlers {
-    public static string | null $uri = '/';
-    public static string | null $resource = BreweryResource::class;
+class CreateHandler extends Handlers
+{
+    public static ?string $uri = '/';
+
+    public static ?string $resource = BreweryResource::class;
 
     public static function getMethod()
     {
         return Handlers::POST;
     }
 
-    public static function getModel() {
+    public static function getModel()
+    {
         return static::$resource::getModel();
     }
 
     /**
      * Create Brewery
      *
-     * @param CreateBreweryRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function handler(CreateBreweryRequest $request)
@@ -32,6 +35,6 @@ class CreateHandler extends Handlers {
 
         $model->save();
 
-        return static::sendSuccessResponse($model, "Successfully Create Resource");
+        return static::sendSuccessResponse($model, 'Successfully Create Resource');
     }
 }

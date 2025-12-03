@@ -1,27 +1,30 @@
 <?php
+
 namespace App\Filament\Resources\UserResource\Api\Handlers;
 
-use Rupadana\ApiService\Http\Handlers;
 use App\Filament\Resources\UserResource;
 use App\Filament\Resources\UserResource\Api\Requests\CreateUserRequest;
+use Rupadana\ApiService\Http\Handlers;
 
-class CreateHandler extends Handlers {
-    public static string | null $uri = '/';
-    public static string | null $resource = UserResource::class;
+class CreateHandler extends Handlers
+{
+    public static ?string $uri = '/';
+
+    public static ?string $resource = UserResource::class;
 
     public static function getMethod()
     {
         return Handlers::POST;
     }
 
-    public static function getModel() {
+    public static function getModel()
+    {
         return static::$resource::getModel();
     }
 
     /**
      * Create User
      *
-     * @param CreateUserRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function handler(CreateUserRequest $request)
@@ -32,6 +35,6 @@ class CreateHandler extends Handlers {
 
         $model->save();
 
-        return static::sendSuccessResponse($model, "Successfully Create Resource");
+        return static::sendSuccessResponse($model, 'Successfully Create Resource');
     }
 }

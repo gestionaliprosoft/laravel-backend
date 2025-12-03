@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Sushi\Sushi;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Database\Eloquent\Model;
+use Sushi\Sushi;
 
 class Brewery extends Model
 {
@@ -18,10 +18,10 @@ class Brewery extends Model
      */
     public function getRows(): array
     {
-        //API
+        // API
         $breweries = Http::get('https://api.openbrewerydb.org/v1/breweries')->json();
 
-        //filtering some attributes
+        // filtering some attributes
         $breweries = Arr::map($breweries, function ($item): array {
             return Arr::only($item,
                 [

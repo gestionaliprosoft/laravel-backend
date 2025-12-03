@@ -3,13 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BreweryResource\Api\Transformers\BreweryTransformer;
-use Filament\Tables;
+use App\Filament\Resources\BreweryResource\Pages;
 use App\Models\Brewery;
-use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
-use App\Filament\Resources\BreweryResource\Pages;
+use Filament\Tables\Table;
 
 class BreweryResource extends Resource
 {
@@ -33,7 +33,7 @@ class BreweryResource extends Resource
                 TextColumn::make('address_1')
                     ->description(function (Brewery $record) {
                         view('columns.addresses', [
-                            'record' => $record
+                            'record' => $record,
                         ]);
                     })
                     ->searchable()
@@ -80,16 +80,16 @@ class BreweryResource extends Resource
                 SelectFilter::make('name')
                     ->multiple()
                     ->options(Brewery::select('name')
-                    ->distinct()
-                    ->get()
-                    ->pluck('name', 'name')
-                ),
+                        ->distinct()
+                        ->get()
+                        ->pluck('name', 'name')
+                    ),
                 SelectFilter::make('brewery_type')
                     ->multiple()
                     ->options(Brewery::select('brewery_type')
-                        ->distinct()
-                        ->get()
-                        ->pluck('brewery_type', 'brewery_type')
+                            ->distinct()
+                            ->get()
+                            ->pluck('brewery_type', 'brewery_type')
                     ),
             ])
             ->actions([])

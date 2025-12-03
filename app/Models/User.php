@@ -3,19 +3,18 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Laravel\Sanctum\HasApiTokens;
-use Spatie\QueryBuilder\QueryBuilder;
-use Illuminate\Notifications\Notifiable;
-use Rupadana\ApiService\Contracts\HasAllowedSorts;
-use Rupadana\ApiService\Contracts\HasAllowedFields;
-use Rupadana\ApiService\Contracts\HasAllowedFilters;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Rupadana\ApiService\Contracts\HasAllowedFields;
+use Rupadana\ApiService\Contracts\HasAllowedFilters;
+use Rupadana\ApiService\Contracts\HasAllowedSorts;
 
-class User extends Authenticatable implements HasAllowedFields, HasAllowedSorts, HasAllowedFilters
+class User extends Authenticatable implements HasAllowedFields, HasAllowedFilters, HasAllowedSorts
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasApiTokens;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -53,7 +52,7 @@ class User extends Authenticatable implements HasAllowedFields, HasAllowedSorts,
 
     public static function getAllowedFields(): array
     {
-       return [];
+        return [];
     }
 
     // Which fields can be used to sort the results through the query string

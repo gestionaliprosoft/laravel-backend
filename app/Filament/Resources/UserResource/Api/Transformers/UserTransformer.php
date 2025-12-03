@@ -1,15 +1,15 @@
 <?php
+
 namespace App\Filament\Resources\UserResource\Api\Transformers;
 
-use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\User;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * @property User $resource
  */
 class UserTransformer extends JsonResource
 {
-
     /**
      * Transform the resource into an array.
      *
@@ -20,7 +20,7 @@ class UserTransformer extends JsonResource
     {
         return [
             'id' => $this->resource->id,
-            'email' => $this->resource->email
+            'email' => $this->resource->email,
         ];
     }
 }
