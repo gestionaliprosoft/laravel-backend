@@ -3,7 +3,6 @@ namespace App\Filament\Resources\BreweryResource\Api;
 
 use Rupadana\ApiService\ApiService;
 use App\Filament\Resources\BreweryResource;
-use Illuminate\Routing\Router;
 
 
 class BreweryApiService extends ApiService

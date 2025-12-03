@@ -2,6 +2,7 @@
 namespace App\Filament\Resources\UserResource\Api\Handlers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Rupadana\ApiService\Http\Handlers;
 use App\Filament\Resources\UserResource;
 
@@ -9,7 +10,7 @@ class DeleteHandler extends Handlers {
     public static string | null $uri = '/{id}';
     public static string | null $resource = UserResource::class;
 
-    public static function getMethod()
+    public static function getMethod(): string
     {
         return Handlers::DELETE;
     }
@@ -24,7 +25,7 @@ class DeleteHandler extends Handlers {
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function handler(Request $request)
+    public function handler(Request $request): JsonResponse
     {
         $id = $request->route('id');
 

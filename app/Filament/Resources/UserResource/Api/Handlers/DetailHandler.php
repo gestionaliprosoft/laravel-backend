@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources\UserResource\Api\Handlers;
 
-use App\Filament\Resources\SettingResource;
-use App\Filament\Resources\UserResource;
-use Rupadana\ApiService\Http\Handlers;
-use Spatie\QueryBuilder\QueryBuilder;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Spatie\QueryBuilder\QueryBuilder;
+use Rupadana\ApiService\Http\Handlers;
+use App\Filament\Resources\UserResource;
 use App\Filament\Resources\UserResource\Api\Transformers\UserTransformer;
 
 class DetailHandler extends Handlers
@@ -21,10 +21,10 @@ class DetailHandler extends Handlers
      * @param Request $request
      * @return UserTransformer
      */
-    public function handler(Request $request)
+    public function handler(Request $request): JsonResponse|UserTransformer
     {
         $id = $request->route('id');
-        
+
         $query = static::getEloquentQuery();
 
         $query = QueryBuilder::for(

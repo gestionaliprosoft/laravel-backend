@@ -1,7 +1,6 @@
 <?php
 namespace App\Filament\Resources\BreweryResource\Api\Handlers;
 
-use Illuminate\Http\Request;
 use Rupadana\ApiService\Http\Handlers;
 use App\Filament\Resources\BreweryResource;
 use App\Filament\Resources\BreweryResource\Api\Requests\UpdateBreweryRequest;

@@ -14,7 +14,7 @@
 - set your database connection in .env file
 - launch migrations
 - create user: php artisan make:filament-user
-- Login: /admin (Brewery List)
+- Login: /admin (Brewery List) (admin@example.com/password)
 
 # Access to API:
 ## POST to http://your-installation-path/api/auth/login

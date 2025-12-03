@@ -22,6 +22,5 @@ class UserTransformer extends JsonResource
             'id' => $this->resource->id,
             'email' => $this->resource->email
         ];
-        //return $this->resource->toArray();
     }
 }

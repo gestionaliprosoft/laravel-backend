@@ -1,7 +1,7 @@
 <?php
 namespace App\Filament\Resources\UserResource\Api\Handlers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Rupadana\ApiService\Http\Handlers;
 use App\Filament\Resources\UserResource;
 use App\Filament\Resources\UserResource\Api\Requests\UpdateUserRequest;
@@ -26,7 +26,7 @@ class UpdateHandler extends Handlers {
      * @param UpdateUserRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function handler(UpdateUserRequest $request)
+    public function handler(UpdateUserRequest $request): JsonResponse
     {
         $id = $request->route('id');
 

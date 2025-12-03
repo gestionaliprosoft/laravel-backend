@@ -3,8 +3,6 @@ namespace App\Filament\Resources\UserResource\Api;
 
 use Rupadana\ApiService\ApiService;
 use App\Filament\Resources\UserResource;
-use Illuminate\Routing\Router;
-
 
 class UserApiService extends ApiService
 {
